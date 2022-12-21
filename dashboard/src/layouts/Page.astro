@@ -1,0 +1,21 @@
+---
+import "../styles/Page.scss"
+
+const { title, icon } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{title}</title>
+		<meta charset="utf-8" />
+		<meta name="author" content="Dionisis Toulatos" />
+		<meta name="description" content="IOT Platform Dashboard" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="color-scheme" content="light dark" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href={icon} />
+		<script src="https://kit.fontawesome.com/36adfcc37b.js" crossorigin="anonymous"></script>
+	</head>
+	<slot />
+</html>
