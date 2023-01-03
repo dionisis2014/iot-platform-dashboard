@@ -1,10 +1,32 @@
 ---
 import Navbar from "../components/Navbar.vue";
+import Seperator from "../components/Seperator.astro";
+import Tab from "../components/Tab.vue";
+import TabItem from "../components/TabItem.vue";
+import Container from "../layouts/Container.astro";
 import Page from "../layouts/Page.astro";
 ---
 
 <Page title="IOT Platform Dashboard" icon="favicon.svg">
 	<body>
-		<Navbar />
+		<Container vert={true} flood={true}>
+			<Navbar />
+			<Seperator />
+			<Container flood={true}>
+				<Seperator vert={true} />
+				<Tab>
+					<TabItem>TEST1</TabItem>
+					<TabItem>TEST2</TabItem>
+					<TabItem>TEST3</TabItem>
+					<TabItem>TEST4</TabItem>
+				</Tab>
+				<Seperator vert={true} />
+				<Container flood={true} fill={true}>
+					TEST
+				</Container>
+				<Seperator vert={true} />
+			</Container>
+			<Seperator />
+		</Container>
 	</body>
 </Page>
