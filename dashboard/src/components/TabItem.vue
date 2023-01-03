@@ -1,6 +1,7 @@
 <template>
 	<button class="tab-item">
 		<slot/>
+		<span>{{ title }}</span>
 	</button>
 </template>
 
@@ -8,7 +9,7 @@
 export default {
 	name: 'TabItem',
 	props: {
-
+		title: String
 	}
 }
 </script>
@@ -41,6 +42,7 @@ export default {
 	}
 
 	&:active {
+		@apply  text-neutral-400;
 		@apply bg-neutral-600;
 	}
 }

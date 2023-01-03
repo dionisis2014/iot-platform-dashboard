@@ -1,8 +1,10 @@
 ---
 import Navbar from "../components/Navbar.vue";
+import Placeholder from "../components/Placeholder.astro";
 import Seperator from "../components/Seperator.astro";
 import Tab from "../components/Tab.vue";
 import TabItem from "../components/TabItem.vue";
+import TabMain from "../components/TabMain.vue";
 import Container from "../layouts/Container.astro";
 import Page from "../layouts/Page.astro";
 ---
@@ -14,15 +16,24 @@ import Page from "../layouts/Page.astro";
 			<Seperator />
 			<Container flood={true}>
 				<Seperator vert={true} />
-				<Tab>
-					<TabItem>TEST1</TabItem>
-					<TabItem>TEST2</TabItem>
-					<TabItem>TEST3</TabItem>
-					<TabItem>TEST4</TabItem>
-				</Tab>
+				<TabMain client:load/>
 				<Seperator vert={true} />
 				<Container flood={true} fill={true}>
-					TEST
+					<div class="w-full h-full grid grid-cols-4 gap-6" id="grid">
+						<Placeholder />
+						<Placeholder />
+						<Placeholder />
+						<Placeholder />
+						<Placeholder />
+						<Placeholder />
+						<Placeholder />
+						<Placeholder />
+						<Placeholder />
+						<Placeholder />
+						<Placeholder />
+						<Placeholder />
+					</div>
+					<div class="hidden" id="data"/>
 				</Container>
 				<Seperator vert={true} />
 			</Container>

@@ -1,0 +1,16 @@
+{
+	"sensors": [
+		{
+			"id": "skf838394",
+			"name": "My Sensor 1",
+			"type": "temp",
+			"value": 25.5
+		},
+		{
+			"id": "dfg423948",
+			"name": "My Sensor 2",
+			"type": "humid",
+			"value": 50
+		}
+	]
+}
