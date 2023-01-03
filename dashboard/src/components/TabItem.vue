@@ -1,5 +1,5 @@
 <template>
-	<button class="tab-item">
+	<button class="tab-item" @click="$emit('clickEvent')">
 		<slot/>
 		<span>{{ title }}</span>
 	</button>

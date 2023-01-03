@@ -17,7 +17,7 @@ export default {
 <style lang="scss" scoped>
 .navbar-item {
 	// Shape
-	@apply h-full aspect-square;
+	@apply h-full py-6 aspect-square;
 	@apply flex justify-center items-center;
 
 	// Appearance

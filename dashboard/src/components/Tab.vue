@@ -16,7 +16,7 @@ export default {
 <style lang="scss" scoped>
 .tab {
 	// Shape
-	@apply w-1/6;
+	@apply w-1/6 min-w-max;
 	@apply overflow-scroll;
 }
 </style>
