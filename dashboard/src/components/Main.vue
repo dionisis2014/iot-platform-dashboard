@@ -1,9 +1,9 @@
 <template>
 	<Container :flood="true" class="p-2">
-		<MainTab @overview="overview" />
-		<Seperator :vert="true" :expand="true"/>
+		<MainTab @overview="overview" @changeTab="showLoading"/>
+		<Seperator :vert="true" :expand="true" />
 		<Container :flood="true" :fill="true">
-			<div class=" hidden">
+			<div class="main-loading" id="main-loading">
 				<Placeholder />
 				<Placeholder />
 				<Placeholder />
@@ -17,7 +17,7 @@
 				<Placeholder />
 				<Placeholder />
 			</div>
-			<div class="main-data">
+			<div class="main-data" id="main-data">
 				<MainSensor v-for="sensor in data" :key="sensor.id" :id="sensor.id" :name="sensor.name" :online="sensor.online" :type="sensor.type" :value="sensor.value">
 				</MainSensor>
 			</div>
@@ -49,9 +49,28 @@ export default {
 		return { data };
 	},
 	methods: {
+		showLoading() {
+			let element: HTMLElement | null;
+			element = document.getElementById('main-loading');
+			if (element !== null)
+				element.style.display = 'grid';
+			element = document.getElementById('main-data');
+			if (element !== null)
+				element.style.display = 'none';
+		},
+		showData() {
+			let element: HTMLElement | null;
+			element = document.getElementById('main-loading');
+			if (element !== null)
+				element.style.display = 'none';
+			element = document.getElementById('main-data');
+			if (element !== null)
+				element.style.display = 'grid';
+		},
 		async overview(dat: Object[]) {
 			this.data.splice(0, this.data.length);
 			this.data = this.data.concat(dat);
+			this.showData();
 		}
 	}
 }
@@ -61,16 +80,16 @@ export default {
 .main-data {
 	// Shape
 	@apply w-full;
-	@apply grid;
+	@apply hidden;
 	@apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6;
 	grid-template-rows: repeat(auto-fit, 10rem);
 }
 
 .main-loading {
 	// Shape
-	@apply w-full h-full;
-	@apply grid gap-6;
-	@apply grid-cols-2 md:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8;
-	@apply grid-rows-2 md:grid-rows-4 xl:grid-rows-6;
+	@apply w-full;
+	@apply grid;
+	@apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6;
+	grid-template-rows: repeat(auto-fit, 10rem);
 }
 </style>

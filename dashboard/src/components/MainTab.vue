@@ -22,13 +22,17 @@ export default {
 		TabItem
 	},
 	methods: {
+		changeTab() {
+			this.$emit('changeTab');
+		},
 		async overview() {
-			await fetch("http://nyx.lan:5000/api/user1234")
+			this.changeTab();
+			await fetch("http://localhost:5000/api/user1234")
 				.then(response => response.json())
 				.then(async dat => {
 					var payload: Array<Object> = [];
 					for (let i = 0; i < dat.sensors.length; ++i) {
-						await fetch("http://nyx.lan:5000/api/user1234/" + dat.sensors[i].id)
+						await fetch("http://localhost:5000/api/user1234/" + dat.sensors[i].id)
 							.then(response => response.json())
 							.then(sensor => {
 								payload.push({
